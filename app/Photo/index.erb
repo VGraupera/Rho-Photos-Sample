@@ -1,0 +1,14 @@
+<div class="toolbar">
+	<h1 id="pageTitle">
+		Photos
+	</h1>
+</div>
+
+<div id="photos" title="Photos" selected="true">
+	<%= link_to '[Choose Picture]', { :action => :edit }%>
+	<%= link_to '[Take Picture]', { :action => :new }%><br/>
+
+	<% @images.reverse_each do |x|%>
+ 		<img src="<%=x.image_uri%>" width='300px'></img><a href="<%=url_for(:action => :delete, :id =>x.object)%>">Delete</a><br/>
+	<% end %>
+</div>
