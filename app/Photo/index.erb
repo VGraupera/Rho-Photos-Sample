@@ -1,11 +1,9 @@
 <div class="toolbar">
-	<h1 id="pageTitle">
-		Photos
-	</h1>
+	<h1 id="pageTitle">Photos</h1>
 </div>
 
 <div id="photos" title="Photos" selected="true">
-	<%= link_to '[Choose Picture]', { :action => :edit }%>
+	<%= link_to '[Choose Picture]', { :action => :choose }%>
 	<%= link_to '[Take Picture]', { :action => :new }%><br/>
 
 	<% @images.reverse_each do |x|%>

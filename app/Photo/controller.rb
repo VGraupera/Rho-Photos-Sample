@@ -5,7 +5,6 @@ class PhotoController < Rho::RhoController
   def index
      puts "Camera index controller"
      @images = Photo.find(:all)
-     render
    end
 
    def new
@@ -13,7 +12,7 @@ class PhotoController < Rho::RhoController
      redirect :action => :index
    end
 
-   def edit
+   def choose
      Camera::choose_picture(url_for :action => :camera_callback)
      redirect :action => :index
    end
@@ -25,14 +24,12 @@ class PhotoController < Rho::RhoController
    end
 
    def camera_callback
-     if @params['status'] == 'ok'
-       #create image record in the DB
-       image = Photo.new({'image_uri'=>@params['image_uri']})
-       image.save
-       puts "new Image object: " + image.inspect
-       WebView::refresh
-     end  
-     #reply on the callback
-     render :action => :ok, :layout => false
+      if @params['status'] == 'ok'
+        #create image record in the DB
+        image = Photo.new({'image_uri'=>@params['image_uri']})
+        image.save
+        puts "new Image object: " + image.inspect
+        WebView.navigate "/app/Photo"
+      end
    end
 end
