@@ -1,11 +1,12 @@
-sdk: "/Users/vidal/code/rho_apps/rhodes"
+--- 
 name: Photos
+bbver: 4.6
+sdk: /Users/vidal/code/rho_apps/rhodes
+applog: rholog.txt
 version: 1.0
 vendor: rhomobile
-bbver: 4.6
-applog: rholog.txt
-iphone:
-  configuration: Debug
-  sdk: iphonesimulator3.0
-  codesignidentity:
+iphone: 
+  sdk: iphonesimulator4.0
   entitlements: 
+  codesignidentity: 
+  configuration: Debug
